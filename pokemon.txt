@@ -1,0 +1,11 @@
+pikachu
+squirtle
+charmander
+bulbasaur
+leafeon
+flareon
+jolteon
+vaporeon
+sylveon
+glaceon
+lucario
