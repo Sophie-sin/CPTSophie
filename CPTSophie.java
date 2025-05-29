@@ -32,7 +32,7 @@ public class CPTSophie{
 			//game start
 			String strWord[][];
 			strWord = randomWord(strChosenTheme);
-			con.println(strWord);
+			con.println(strWord[0][0]);
 			themes.close();
 		}
 		//view leaderboard
