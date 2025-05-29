@@ -15,6 +15,14 @@ public class CPTSophie{
 		if(strMainMenu.equals("p")){
 			con.clear();
 			
+			//ask for username
+			/*String strName;
+			TextOutputFile leaderboard = new TextOutputFile ("leaderboard.txt",true);
+			con.println("Enter your name: ");
+			strName = con.readLine();
+			leaderboard.close();
+			con.clear();*/
+			
 			//choose theme
 			String strThemes;
 			String strChosenTheme;
@@ -55,19 +63,23 @@ public class CPTSophie{
 		int intCount = 0;
 		int intCount2 = 0;
 		//load words into arrays
+		//read line# then load data
 		while(theme.eof()==false){
 			strWords = theme.readLine();
 			intCount = intCount + 1;
 		}
+		theme.close();
+
+		TextInputFile themefile = new TextInputFile(strTheme);
 		strBubbleWords = new String[intCount][2];
-		while(theme.eof()==false){
-			strBubbleWords[intCount2][0] = theme.readLine();
+		while(themefile.eof()==false){
+			strBubbleWords[intCount2][0] = themefile.readLine();
 			intRandNum = (int)(Math.random()*100+1);
 			strRandNum = ("")+intRandNum+("");
 			strBubbleWords[intCount2][1] = strRandNum;
 			intCount2 = intCount2 + 1;
 		}
-		theme.close();
+		themefile.close();
 		return strBubbleWords;
 		
 	}
