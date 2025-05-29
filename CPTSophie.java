@@ -80,6 +80,24 @@ public class CPTSophie{
 			intCount2 = intCount2 + 1;
 		}
 		themefile.close();
+		//bubble sort
+		String strTempWord;
+		String strTempNum;
+		int intCount3;
+		for(intCount3 = 0; intCount3<intCount-1; intCount++){
+			for(intCount = 0; intCount<intCount2-1; intCount++){
+				if(Integer.parseInt(strBubbleWords[intCount][1])>Integer.parseInt(strBubbleWords[intCount+1][1])){
+					//swap word
+					strTempWord = strBubbleWords[intCount][0];
+					strBubbleWords[intCount][0] = strBubbleWords[intCount+1][0];
+					strBubbleWords[intCount+1][0] = strTempWord;
+					//swap int
+					strTempNum = strBubbleWords[intCount][1];
+					strBubbleWords[intCount][1] = strBubbleWords[intCount+1][1];
+					strBubbleWords[intCount+1][1] = strTempNum;
+				}
+			}
+		}
 		return strBubbleWords;
 		
 	}
