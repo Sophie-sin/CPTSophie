@@ -54,6 +54,7 @@ public class CPTSophie{
 		String strRandNum;
 		int intCount = 0;
 		int intCount2 = 0;
+		//load words into arrays
 		while(theme.eof()==false){
 			strWords = theme.readLine();
 			intCount = intCount + 1;
