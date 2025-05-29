@@ -30,9 +30,10 @@ public class CPTSophie{
 			strChosenTheme = con.readLine();
 			
 			//game start
-			String strWord;
-			strWord = "";
-			
+			String strWord[][];
+			strWord = randomWord(strChosenTheme);
+			con.println(strWord);
+			themes.close();
 		}
 		//view leaderboard
 		
@@ -45,9 +46,29 @@ public class CPTSophie{
 		
 	}
 	
-	public static String randomWord(String strTheme){
+	public static String[][] randomWord(String strTheme){
 		TextInputFile theme = new TextInputFile(strTheme);
-		return"hi";
+		String strWords;
+		String strBubbleWords[][];
+		int intRandNum;
+		String strRandNum;
+		int intCount = 0;
+		int intCount2 = 0;
+		while(theme.eof()==false){
+			strWords = theme.readLine();
+			intCount = intCount + 1;
+		}
+		strBubbleWords = new String[intCount][2];
+		while(theme.eof()==false){
+			strBubbleWords[intCount2][0] = theme.readLine();
+			intRandNum = (int)(Math.random()*100+1);
+			strRandNum = ("")+intRandNum+("");
+			strBubbleWords[intCount2][1] = strRandNum;
+			intCount2 = intCount2 + 1;
+		}
+		theme.close();
+		return strBubbleWords;
+		
 	}
 	
 }
