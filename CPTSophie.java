@@ -1,14 +1,12 @@
 import arc.*;
+import java.awt.image.BufferedImage;
 
 public class CPTSophie{
 	public static void main(String[] args){
 		Console con = new Console();
 		//main menu
 		String strMainMenu;
-		con.println("▶ play game (p)");
-		con.println("▶ view leaderboard (v)");
-		con.println("▶ add theme (a)");
-		con.println("▶ quit (q)");
+		CPTsophietools.MainMenu(con);
 		strMainMenu = con.readLine();
 		
 		//play game
@@ -38,14 +36,59 @@ public class CPTSophie{
 			strChosenTheme = con.readLine();
 			
 			//game start
+			//load word
 			String strWord[][];
-			strWord = randomWord(strChosenTheme);
-			con.println(strWord[0][0]);
+			strWord = CPTsophietools.randomWord(strChosenTheme);
+			//con.println(strWord[0][0]);
 			themes.close();
+			con.clear();
+			
+			//load hangman pole, underlines for word
+			int intWord;
+			int intCount;
+			intWord = strWord[0][0].length();
+			//con.println(intWord);
+			BufferedImage imgPole = con.loadImage("hangman.png");
+			con.drawImage(imgPole, 0, 0);
+			for(intCount = 0; intCount<intWord; intCount++){
+				con.print("_");
+			}
+			
+			//user guesses the word, output body part and one letter
+			String strGuessWord;
+			String strLetter;
+			strGuessWord = con.readLine();
+			if(!strGuessWord.equals(strWord)){
+				con.clear();
+				
+			}
+			
+			
 		}
 		//view leaderboard
 		
 		//add theme
+		if(strMainMenu.equals("a")){
+			String strNewTheme;
+			String strNewWord = "";
+			con.clear();
+			//new theme
+			TextOutputFile newTheme = new TextOutputFile("themes.txt", true);
+			con.println("Enter theme name (including .txt): ");
+			strNewTheme = con.readLine();
+			newTheme.println(strNewTheme);
+			newTheme.close();
+			//words into theme
+			TextOutputFile newWords = new TextOutputFile(strNewTheme);
+			con.println("Enter words: press enter to continue, type 'stop' to stop");
+			strNewWord = con.readLine();
+			while(!strNewWord.equals("stop")){
+				newWords.println(strNewWord);
+				strNewWord = con.readLine();
+			}
+			con.println("New Theme is successfully added!");
+			CPTsophietools.MainMenu(con);
+		}
 		
 		//quit
 		if(strMainMenu.equals("q")){
@@ -54,52 +97,6 @@ public class CPTSophie{
 		
 	}
 	
-	public static String[][] randomWord(String strTheme){
-		TextInputFile theme = new TextInputFile(strTheme);
-		String strWords;
-		String strBubbleWords[][];
-		int intRandNum;
-		String strRandNum;
-		int intCount = 0;
-		int intCount2 = 0;
-		//load words into arrays
-		//read line# then load data
-		while(theme.eof()==false){
-			strWords = theme.readLine();
-			intCount = intCount + 1;
-		}
-		theme.close();
-
-		TextInputFile themefile = new TextInputFile(strTheme);
-		strBubbleWords = new String[intCount][2];
-		while(themefile.eof()==false){
-			strBubbleWords[intCount2][0] = themefile.readLine();
-			intRandNum = (int)(Math.random()*100+1);
-			strRandNum = ("")+intRandNum+("");
-			strBubbleWords[intCount2][1] = strRandNum;
-			intCount2 = intCount2 + 1;
-		}
-		themefile.close();
-		//bubble sort
-		String strTempWord;
-		String strTempNum;
-		int intCount3;
-		for(intCount3 = 0; intCount3<intCount-1; intCount3++){
-			for(intCount = 0; intCount<intCount2-1; intCount++){
-				if(Integer.parseInt(strBubbleWords[intCount][1])>Integer.parseInt(strBubbleWords[intCount+1][1])){
-					//swap word
-					strTempWord = strBubbleWords[intCount][0];
-					strBubbleWords[intCount][0] = strBubbleWords[intCount+1][0];
-					strBubbleWords[intCount+1][0] = strTempWord;
-					//swap int
-					strTempNum = strBubbleWords[intCount][1];
-					strBubbleWords[intCount][1] = strBubbleWords[intCount+1][1];
-					strBubbleWords[intCount+1][1] = strTempNum;
-				}
-			}
-		}
-		return strBubbleWords;
-		
-	}
+	
 	
 }
