@@ -84,7 +84,7 @@ public class CPTSophie{
 		String strTempWord;
 		String strTempNum;
 		int intCount3;
-		for(intCount3 = 0; intCount3<intCount-1; intCount++){
+		for(intCount3 = 0; intCount3<intCount-1; intCount3++){
 			for(intCount = 0; intCount<intCount2-1; intCount++){
 				if(Integer.parseInt(strBubbleWords[intCount][1])>Integer.parseInt(strBubbleWords[intCount+1][1])){
 					//swap word
