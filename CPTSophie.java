@@ -5,13 +5,19 @@ public class CPTSophie{
 	public static void main(String[] args){
 		Console con = new Console();
 		//main menu
-		String strMainMenu;
-		CPTsophietools.MainMenu(con);
-		strMainMenu = con.readLine();
+		char chrMainMenu = ' ';
+		chrMainMenu = CPTsophietools.MainMenu(con);
+		con.clear();
+		
+		//loop
+		boolean blnLoop = true;
+		while(blnLoop == true){
+			
 		
 		//play game
-		if(strMainMenu.equals("p")){
+		if(chrMainMenu=='p'){
 			con.clear();
+			blnLoop = false;
 			
 			//ask for username
 			/*String strName;
@@ -68,7 +74,8 @@ public class CPTSophie{
 		//view leaderboard
 		
 		//add theme
-		if(strMainMenu.equals("a")){
+		if(chrMainMenu=='a'){
+			blnLoop = false;
 			String strNewTheme;
 			String strNewWord = "";
 			con.clear();
@@ -87,16 +94,28 @@ public class CPTSophie{
 				strNewWord = con.readLine();
 			}
 			con.println("New Theme is successfully added!");
-			CPTsophietools.MainMenu(con);
+			//return to main menu
+			con.clear();
+			chrMainMenu = CPTsophietools.MainMenu(con);
+
 		}
 		
 		//quit
-		if(strMainMenu.equals("q")){
+		if(chrMainMenu=='q'){
+			blnLoop = false;
+			con.closeConsole();
+		}
+		
+		else{
+			chrMainMenu = CPTsophietools.MainMenu(con);
 			con.clear();
 		}
 		
+		}
+		
+		
+		
 	}
 	
-	
-	
+		
 }

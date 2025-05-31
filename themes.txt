@@ -1,1 +1,6 @@
+pokemon.txt
+whales.txt
+countries.txt
+nintendogames.txt
+nijisanjiJP.txt
 testtheme.txt

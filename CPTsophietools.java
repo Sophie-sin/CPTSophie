@@ -48,10 +48,13 @@ public class CPTsophietools{
 		return strBubbleWords;
 	}
 	
-	public static void MainMenu(Console con){
+	public static char MainMenu(Console con){
+		char chrMainMenu;
 		con.println("▶ play game (p)");
 		con.println("▶ view leaderboard (v)");
 		con.println("▶ add theme (a)");
 		con.println("▶ quit (q)");
+		chrMainMenu = con.getChar();
+		return chrMainMenu;
 	}
 }
