@@ -53,8 +53,22 @@ public class CPTsophietools{
 		con.println("▶ play game (p)");
 		con.println("▶ view leaderboard (v)");
 		con.println("▶ add theme (a)");
+		con.println("▶ help (h)");
 		con.println("▶ quit (q)");
 		chrMainMenu = con.getChar();
 		return chrMainMenu;
 	}
+	
+	public static void helpMenu(Console con){
+		con.println("Welcome to the help menu!");
+		con.println("Hope these instructions would help you on your journey:");
+		con.println("1. To start gameplay, press 'p' in main menu");
+		con.println("2. Enter username - username will be displayed on leaderboard");
+		con.println("3. Multiple themes will be shown on the screen - type your desired theme");
+		con.println("4. The number of underlines represent the number of letters of the word you have to guess");
+		con.println("5. Win by guessing the correct word before the hangman is completed");
+		con.println("6. Return to main menu by pressing 'r'");
+		
+	}
+	
 }
