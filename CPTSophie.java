@@ -31,24 +31,24 @@ public class CPTSophie{
 				//choose theme
 				String strThemes;
 				String strChosenTheme;
-				con.println("Choose a theme:");
-				con.println(" ");
-				TextInputFile themes = new TextInputFile ("themes.txt");
-				while(themes.eof()==false){
-					strThemes = themes.readLine();
-					con.println("▶ "+strThemes);
-				}
+				strThemes = "";
+				strChosenTheme = CPTsophietools.theme(con);
 				
-				con.println("\n\n▶ Type your chosen theme:");
-				strChosenTheme = con.readLine();
+				//find theme
+				strThemes = CPTsophietools.checkTheme(strThemes, strChosenTheme);
+				while(!strChosenTheme.equals(strThemes)){
+					con.clear();
+					strChosenTheme = CPTsophietools.theme(con);
+					strThemes = CPTsophietools.checkTheme(strThemes, strChosenTheme);
+				}
+				con.clear();
 				
 				//game start
 				//load word
 				String strWord[][];
 				strWord = CPTsophietools.randomWord(strChosenTheme);
 				System.out.println(strWord[0][0]);
-				themes.close();
-				con.clear();
+				
 				
 				//load hangman pole, underlines for word
 				int intWord;
@@ -67,11 +67,10 @@ public class CPTSophie{
 				strGuessWord = con.readLine();
 				if(!strGuessWord.equals(strWord)){
 					con.clear();
-					
 				}
-				
-				
+				chrMainMenu = CPTsophietools.MainMenu(con);
 			}
+							
 			//view leaderboard
 			if(chrMainMenu=='v'){
 				blnLoop = false;

@@ -1,6 +1,16 @@
 import arc.*;
 
 public class CPTsophietools{
+	public static String checkTheme(String strTheme, String strChosenTheme){
+		TextInputFile themes = new TextInputFile ("themes.txt");
+		while(themes.eof() == false && !strChosenTheme.equalsIgnoreCase(strTheme)){
+			strTheme = themes.readLine();
+		}
+		themes.close();
+		return strTheme;
+	}
+	
+	
 	public static String[][] randomWord(String strTheme){
 		TextInputFile theme = new TextInputFile(strTheme);
 		String strWords;
@@ -14,9 +24,10 @@ public class CPTsophietools{
 		while(theme.eof()==false){
 			strWords = theme.readLine();
 			intCount = intCount + 1;
+			
 		}
 		theme.close();
-
+		
 		TextInputFile themefile = new TextInputFile(strTheme);
 		strBubbleWords = new String[intCount][2];
 		while(themefile.eof()==false){
@@ -45,7 +56,12 @@ public class CPTsophietools{
 				}
 			}
 		}
+		for(intCount = 0; intCount<intCount2; intCount++){
+			System.out.println(strBubbleWords[intCount][0]);
+			System.out.println(strBubbleWords[intCount][1]);
+		}
 		return strBubbleWords;
+	
 	}
 	
 	public static char MainMenu(Console con){
@@ -127,6 +143,23 @@ public class CPTsophietools{
 			con.print(intRank+strLeaderboard[intRow][0]);
 			con.println(strLeaderboard[intRow][1]);
 		}
+	}
+	
+	public static String theme(Console con){
+		String strThemes;
+		String strChosenTheme;
+					
+		con.println("Choose a theme:");
+		con.println(" ");
+		TextInputFile themes = new TextInputFile ("themes.txt");
+		while(themes.eof()==false){
+			strThemes = themes.readLine();
+			con.println("▶ "+strThemes);
+		}			
+		con.println("\n\n▶ Type your chosen theme:");
+		strChosenTheme = con.readLine();
+		themes.close();	
+		return strChosenTheme;
 	}
 	
 }
