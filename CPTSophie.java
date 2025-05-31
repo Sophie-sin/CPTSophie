@@ -46,7 +46,7 @@ public class CPTSophie{
 				//load word
 				String strWord[][];
 				strWord = CPTsophietools.randomWord(strChosenTheme);
-				//con.println(strWord[0][0]);
+				System.out.println(strWord[0][0]);
 				themes.close();
 				con.clear();
 				
@@ -54,7 +54,7 @@ public class CPTSophie{
 				int intWord;
 				int intCount;
 				intWord = strWord[0][0].length();
-				//con.println(intWord);
+				System.out.println(intWord);
 				BufferedImage imgPole = con.loadImage("hangman.png");
 				con.drawImage(imgPole, 0, 0);
 				for(intCount = 0; intCount<intWord; intCount++){
@@ -73,6 +73,7 @@ public class CPTSophie{
 				
 			}
 			//view leaderboard
+			
 			
 			//add theme
 			if(chrMainMenu=='a'){
@@ -111,6 +112,21 @@ public class CPTSophie{
 			if(chrMainMenu=='h'){
 				blnLoop = false;
 				CPTsophietools.helpMenu(con);
+				while(chrReturn != 'r'){
+					chrReturn = con.getChar();
+				}
+				if(chrReturn == 'r'){
+					con.clear();
+					chrMainMenu = CPTsophietools.MainMenu(con);
+					con.clear();
+					blnLoop = true;
+				}
+			}
+			
+			//secret menu
+			if(chrMainMenu=='s'){
+				blnLoop = false;
+				CPTsophietools.secretMenu(con);
 				while(chrReturn != 'r'){
 					chrReturn = con.getChar();
 				}

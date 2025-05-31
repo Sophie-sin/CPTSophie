@@ -71,4 +71,12 @@ public class CPTsophietools{
 		
 	}
 	
+	public static void secretMenu(Console con){
+		con.println("Oh hi!");
+		con.println("You found the secret menu!");
+		con.println("You know what? ");
+		con.println("Killerwhales are actually dolphins.");
+		con.println("\n\nHa! I bet you did not know :)");
+	}
+	
 }
