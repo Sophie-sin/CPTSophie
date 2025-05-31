@@ -21,12 +21,12 @@ public class CPTSophie{
 				blnLoop = false;
 				
 				//ask for username
-				/*String strName;
+				String strName;
 				TextOutputFile leaderboard = new TextOutputFile ("leaderboard.txt",true);
 				con.println("Enter your name: ");
 				strName = con.readLine();
 				leaderboard.close();
-				con.clear();*/
+				con.clear();
 				
 				//choose theme
 				String strThemes;
@@ -73,7 +73,19 @@ public class CPTSophie{
 				
 			}
 			//view leaderboard
-			
+			if(chrMainMenu=='v'){
+				blnLoop = false;
+				CPTsophietools.leaderboard(con);
+				while(chrReturn != 'r'){
+					chrReturn = con.getChar();
+				}
+				if(chrReturn == 'r'){
+					con.clear();
+					chrMainMenu = CPTsophietools.MainMenu(con);
+					con.clear();
+					blnLoop = true;
+				}
+			}
 			
 			//add theme
 			if(chrMainMenu=='a'){

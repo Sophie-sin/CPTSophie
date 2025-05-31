@@ -79,4 +79,54 @@ public class CPTsophietools{
 		con.println("\n\nHa! I bet you did not know :)");
 	}
 	
+	public static void leaderboard(Console con){
+		String strName;
+		int intSaves;
+		int intRow;
+		int intCount = 0;
+		TextInputFile leaderboard = new TextInputFile("leaderboard.txt");
+		//read file
+		while(leaderboard.eof()==false){
+			strName = leaderboard.readLine();
+			intSaves = leaderboard.readInt();
+			intCount = intCount + 1;
+		}
+		leaderboard.close();
+		//load into array
+		String strLeaderboard[][];
+		strLeaderboard = new String[intCount][2];
+		leaderboard = new TextInputFile("leaderboard.txt");
+		for(intRow = 0; intRow < intCount; intRow++){
+			strLeaderboard[intRow][0] = leaderboard.readLine();
+			strLeaderboard[intRow][1] = leaderboard.readLine();
+		}
+		//bubble sort
+		int intRow2 = 0;
+		String strTempName;
+		String strTempSaves;
+		for(intRow2 = 0; intRow2 < intCount-1; intRow2++){
+			for(intRow = 0; intRow < intCount-1-intRow2; intRow++){
+				if(Integer.parseInt(strLeaderboard[intRow][1])<Integer.parseInt(strLeaderboard[intRow+1][1])){
+					//swap name
+					strTempName = strLeaderboard[intRow][0];
+					strLeaderboard[intRow][0] = strLeaderboard[intRow+1][0];
+					strLeaderboard[intRow+1][0] = strTempName;
+					//swap saves
+					strTempSaves = strLeaderboard[intRow][1];
+					strLeaderboard[intRow][1] = strLeaderboard[intRow+1][1];
+					strLeaderboard[intRow+1][1] = strTempSaves;
+				}
+			}
+		}
+		con.println("Leaderboard");
+		con.println("TOP 10");
+		con.println("NAME      SAVES");
+		int intRank = 0;
+		for(intRow = 0; intRow < 10; intRow++){
+			intRank = intRank+1;
+			con.print(intRank+strLeaderboard[intRow][0]);
+			con.println(strLeaderboard[intRow][1]);
+		}
+	}
+	
 }
