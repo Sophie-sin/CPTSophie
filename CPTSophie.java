@@ -45,30 +45,53 @@ public class CPTSophie{
 				
 				//game start
 				//load word
-				String strWord[][];
-				strWord = CPTsophietools.randomWord(strChosenTheme);
-				System.out.println(strWord[0][0]);
+				String strRandomWord[][];
+				strRandomWord = CPTsophietools.randomWord(strChosenTheme);
+				System.out.println("TEST WORD: "+strRandomWord[0][0]);
 				
 				
 				//load hangman pole, underlines for word
 				int intWord;
 				int intCount;
-				intWord = strWord[0][0].length();
-				System.out.println(intWord);
+				
+				String strWord = strRandomWord[0][0];
+				intWord = strWord.length();
+				System.out.println("TEST WORD COUNT: "+intWord);
 				BufferedImage imgPole = con.loadImage("hangman.png");
 				con.drawImage(imgPole, 0, 0);
+				con.println("                              ");
+				con.print("                           ");
 				for(intCount = 0; intCount<intWord; intCount++){
 					con.print("_");
 				}
 				
 				//user guesses the word, output body part and one letter
 				String strGuessWord;
-				String strLetter;
+				String strLetter[][];
+				con.print("\n\n                           ");
 				strGuessWord = con.readLine();
+				strLetter = CPTsophietools.randomLetter(strWord,intWord);
+			
 				if(!strGuessWord.equals(strWord)){
 					con.clear();
+					con.drawImage(imgPole, 0, 0);
+					con.println("                              ");
+					con.print("                           ");
+					con.println(strLetter[0][0]);
+					con.print("                           ");
+					for(intCount = 0; intCount<intWord; intCount++){
+						con.print("_");
+					}
 				}
-				chrMainMenu = CPTsophietools.MainMenu(con);
+				
+				//win scenario
+				
+				//lose scenario
+				
+				//continue or not
+				//return to main menu
+				//chrMainMenu = CPTsophietools.MainMenu(con);
+				
 			}
 							
 			//view leaderboard
@@ -155,7 +178,6 @@ public class CPTSophie{
 			}
 			
 		}
-		
 		
 		
 	}

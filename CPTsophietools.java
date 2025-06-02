@@ -162,4 +162,15 @@ public class CPTsophietools{
 		return strChosenTheme;
 	}
 	
+	public static String[][] randomLetter(String strWord, int intWord){
+		int intCount;
+		String strLetter[][];
+		strLetter = new String[intWord][2];
+		for(intCount = 0; intCount < intWord; intCount++){
+			strLetter[intCount][0] = strWord.substring(intCount,intCount+1);
+			//System.out.println(strLetter[intCount][0]);
+		}
+		return strLetter;
+	}
+	
 }
