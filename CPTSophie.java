@@ -71,7 +71,8 @@ public class CPTSophie{
 				con.print("\n\n                           ");
 				strGuessWord = con.readLine();
 				strLetter = CPTsophietools.randomLetter(strWord,intWord);
-			
+				
+				//guessed wrong
 				if(!strGuessWord.equals(strWord)){
 					con.clear();
 					con.drawImage(imgPole, 0, 0);

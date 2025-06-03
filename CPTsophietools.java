@@ -57,8 +57,7 @@ public class CPTsophietools{
 			}
 		}
 		for(intCount = 0; intCount<intCount2; intCount++){
-			System.out.println(strBubbleWords[intCount][0]);
-			System.out.println(strBubbleWords[intCount][1]);
+			System.out.println(strBubbleWords[intCount][0]+" - "+strBubbleWords[intCount][1]);
 		}
 		return strBubbleWords;
 	
@@ -164,11 +163,34 @@ public class CPTsophietools{
 	
 	public static String[][] randomLetter(String strWord, int intWord){
 		int intCount;
+		int intRand;
 		String strLetter[][];
 		strLetter = new String[intWord][2];
 		for(intCount = 0; intCount < intWord; intCount++){
 			strLetter[intCount][0] = strWord.substring(intCount,intCount+1);
-			//System.out.println(strLetter[intCount][0]);
+			intRand = (int)(Math.random()*100+1);
+			strLetter[intCount][1] = intRand+"";
+		}
+		//bubble sort random letter
+		int intCount2 = 0;
+		String strTempLetter;
+		String strTempNum;
+		for(intCount2 = 0; intCount2 < intWord-1; intCount2++){
+			for(intCount = 0; intCount < intWord-1-intCount2; intCount++){
+				if(Integer.parseInt(strLetter[intCount][1])<Integer.parseInt(strLetter[intCount+1][1])){
+					//swap letter
+					strTempLetter = strLetter[intCount][0];
+					strLetter[intCount][0] = strLetter[intCount+1][0];
+					strLetter[intCount+1][0] = strTempLetter;
+					//swap rand num
+					strTempNum = strLetter[intCount][1];
+					strLetter[intCount][1] = strLetter[intCount+1][1];
+					strLetter[intCount+1][1] = strTempNum;
+				}
+			}
+		}
+		for(intWord = 0; intWord < intCount2+1; intWord++){
+			System.out.println(strLetter[intWord][0]+" - "+strLetter[intWord][1]);
 		}
 		return strLetter;
 	}
