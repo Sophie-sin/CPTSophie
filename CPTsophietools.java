@@ -175,6 +175,7 @@ public class CPTsophietools{
 		int intCount2 = 0;
 		String strTempLetter;
 		String strTempNum;
+		int intSpace;
 		for(intCount2 = 0; intCount2 < intWord-1; intCount2++){
 			for(intCount = 0; intCount < intWord-1-intCount2; intCount++){
 				if(Integer.parseInt(strLetter[intCount][1])<Integer.parseInt(strLetter[intCount+1][1])){
@@ -189,9 +190,14 @@ public class CPTsophietools{
 				}
 			}
 		}
+		//rearrange to correct position
 		for(intWord = 0; intWord < intCount2+1; intWord++){
 			System.out.println(strLetter[intWord][0]+" - "+strLetter[intWord][1]);
+			for(intSpace = 0; intSpace < intCount; intSpace++){
+				strLetter[intSpace][0] = (" ")+strLetter[intSpace][0];
+			}
 		}
+		
 		return strLetter;
 	}
 	
