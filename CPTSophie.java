@@ -53,12 +53,14 @@ public class CPTSophie{
 				//load hangman pole, underlines for word
 				int intWord;
 				int intCount;
+				int intAttempt = 0;
 				
 				String strWord = strRandomWord[0][0];
 				intWord = strWord.length();
 				System.out.println("TEST WORD COUNT: "+intWord);
 				BufferedImage imgPole = con.loadImage("hangman.png");
-				con.drawImage(imgPole, 0, 0);
+				//con.drawImage(imgPole, 0, 0);
+				CPTsophietools.hangman(con, intAttempt);
 				con.println("                              ");
 				con.print("                           ");
 				for(intCount = 0; intCount<intWord; intCount++){
@@ -73,21 +75,29 @@ public class CPTSophie{
 				strLetter = CPTsophietools.randomLetter(strWord,intWord);
 				
 				//guessed wrong
-				if(!strGuessWord.equals(strWord)){
+				while(!strGuessWord.equals(strWord)&&intAttempt<8){
 					con.clear();
-					con.drawImage(imgPole, 0, 0);
+					intAttempt = intAttempt+1;
+					CPTsophietools.hangman(con, intAttempt);
 					con.println("                              ");
 					con.print("                           ");
-					con.println(strLetter[0][0]);
+					con.println(strLetter[intAttempt-1][0]);
 					con.print("                           ");
 					for(intCount = 0; intCount<intWord; intCount++){
 						con.print("_");
 					}
+					con.print("\n\n                           ");
+					strGuessWord = con.readLine();
 				}
 				
 				//win scenario
-				
+				if(strGuessWord.equals(strWord)){
+					con.clear();
+					con.println("you won!");
+				}
 				//lose scenario
+				con.clear();
+				con.println("you lose!");
 				
 				//continue or not
 				//return to main menu

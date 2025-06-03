@@ -1,4 +1,5 @@
 import arc.*;
+import java.awt.image.BufferedImage;
 
 public class CPTsophietools{
 	public static String checkTheme(String strTheme, String strChosenTheme){
@@ -199,6 +200,16 @@ public class CPTsophietools{
 		}
 		
 		return strLetter;
+	}
+	
+	public static void hangman(Console con,int intAttempt){
+		BufferedImage imgPole = con.loadImage("hangman.png");
+		if(intAttempt == 0){
+			con.drawImage(imgPole, 20, 50);
+		}else if(intAttempt == 1){
+			con.drawImage(imgPole, 20, 50);
+			con.fillOval(100, 50, 50, 50);
+		}
 	}
 	
 }
