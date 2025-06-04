@@ -204,11 +204,47 @@ public class CPTsophietools{
 	
 	public static void hangman(Console con,int intAttempt){
 		BufferedImage imgPole = con.loadImage("hangman.png");
+		BufferedImage imglhand = con.loadImage("lefthand.png");
+		BufferedImage imgrhand = con.loadImage("righthand.png");
+		BufferedImage imglleg = con.loadImage("leftleg.png");
+		BufferedImage imgrleg = con.loadImage("rightleg.png");
 		if(intAttempt == 0){
 			con.drawImage(imgPole, 20, 50);
 		}else if(intAttempt == 1){
 			con.drawImage(imgPole, 20, 50);
-			con.fillOval(100, 50, 50, 50);
+			con.fillOval(190, 80, 50, 50);
+		}else if(intAttempt == 2){
+			con.drawImage(imgPole, 20, 50);
+			con.fillOval(190, 80, 50, 50);
+			con.fillRect(210, 100, 8, 80);
+		}else if(intAttempt == 3){
+			con.drawImage(imgPole, 20, 50);
+			con.fillOval(190, 80, 50, 50);
+			con.fillRect(210, 100, 8, 80);
+			con.drawImage(imglhand, -225, -190);
+		}else if(intAttempt == 4){
+			con.drawImage(imgPole, 20, 50);
+			con.fillOval(190, 80, 50, 50);
+			con.fillRect(210, 100, 8, 80);
+			con.drawImage(imglhand, -225, -190);
+			con.drawImage(imgrhand, -200, -190);
+		}else if(intAttempt == 5){
+			con.drawImage(imgPole, 20, 50);
+			con.fillOval(190, 80, 50, 50);
+			con.fillRect(210, 100, 8, 80);
+			con.drawImage(imglhand, -225, -190);
+			con.drawImage(imgrhand, -200, -190);
+			con.drawImage(imglleg, -225, -155);
+		}else if(intAttempt == 6){
+			con.drawImage(imgPole, 20, 50);
+			con.fillOval(190, 80, 50, 50);
+			con.fillRect(210, 100, 8, 80);
+			con.drawImage(imglhand, -225, -190);
+			con.drawImage(imgrhand, -200, -190);
+			con.drawImage(imglleg, -225, -155);
+			con.drawImage(imgrleg, -200, -155);
+		}else{
+			con.clear();
 		}
 	}
 	
