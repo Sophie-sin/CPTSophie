@@ -216,29 +216,29 @@ public class CPTsophietools{
 		}else if(intAttempt == 2){
 			con.drawImage(imgPole, 20, 50);
 			con.fillOval(190, 80, 50, 50);
-			con.fillRect(210, 100, 8, 80);
+			con.fillRect(210, 100, 7, 80);
 		}else if(intAttempt == 3){
 			con.drawImage(imgPole, 20, 50);
 			con.fillOval(190, 80, 50, 50);
-			con.fillRect(210, 100, 8, 80);
+			con.fillRect(210, 100, 7, 80);
 			con.drawImage(imglhand, -225, -190);
 		}else if(intAttempt == 4){
 			con.drawImage(imgPole, 20, 50);
 			con.fillOval(190, 80, 50, 50);
-			con.fillRect(210, 100, 8, 80);
+			con.fillRect(210, 100, 7, 80);
 			con.drawImage(imglhand, -225, -190);
 			con.drawImage(imgrhand, -200, -190);
 		}else if(intAttempt == 5){
 			con.drawImage(imgPole, 20, 50);
 			con.fillOval(190, 80, 50, 50);
-			con.fillRect(210, 100, 8, 80);
+			con.fillRect(210, 100, 7, 80);
 			con.drawImage(imglhand, -225, -190);
 			con.drawImage(imgrhand, -200, -190);
 			con.drawImage(imglleg, -225, -155);
 		}else if(intAttempt == 6){
 			con.drawImage(imgPole, 20, 50);
 			con.fillOval(190, 80, 50, 50);
-			con.fillRect(210, 100, 8, 80);
+			con.fillRect(210, 100, 7, 80);
 			con.drawImage(imglhand, -225, -190);
 			con.drawImage(imgrhand, -200, -190);
 			con.drawImage(imglleg, -225, -155);
@@ -246,6 +246,17 @@ public class CPTsophietools{
 		}else{
 			con.clear();
 		}
+	}
+	public static void winScenario(Console con, boolean blnWin){
+		if(blnWin = true){
+			con.println("Congratulations!");
+			con.println("You successfully rescued the victim!▼");
+		}else{
+			con.println("....");
+			con.println("...........");
+			con.println("...You tried your best.▼");
+		}
+		
 	}
 	
 }

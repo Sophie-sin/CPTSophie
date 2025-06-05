@@ -68,6 +68,7 @@ public class CPTSophie{
 				//user guesses the word, output body part and one letter
 				String strGuessWord;
 				String strLetter[][];
+				boolean blnWin = true;
 				con.print("\n\n                           ");
 				strGuessWord = con.readLine();
 				strLetter = CPTsophietools.randomLetter(strWord,intWord);
@@ -75,6 +76,7 @@ public class CPTSophie{
 				//guessed wrong
 				while(!strGuessWord.equals(strWord)&&intAttempt<6){
 					con.clear();
+					blnWin = false;
 					intAttempt = intAttempt+1;
 					CPTsophietools.hangman(con, intAttempt);
 					con.println("                              ");
@@ -86,11 +88,18 @@ public class CPTSophie{
 					}
 					con.print("\n\n                           ");
 					strGuessWord = con.readLine();
+					con.clear();
 				}
 				
 				//win scenario
+				/*if(!strGuessWord.equals(strWord)){
+					blnWin = false;
+				}else{
+					blnWin = true;
+				}*/
+				CPTsophietools.winScenario(con, blnWin);
 				con.clear();
-				con.println("you won!");
+				
 				//lose scenario
 
 				//continue or not
