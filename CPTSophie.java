@@ -192,7 +192,7 @@ public class CPTSophie{
 			//secret menu
 			if(chrMainMenu=='s'){
 				blnLoop = false;
-				CPTsophietools.secretMenu(con);
+				chrReturn = CPTsophietools.secretMenu(con);
 				while(chrReturn != 'r'){
 					chrReturn = con.getChar();
 				}
