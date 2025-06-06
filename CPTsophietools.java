@@ -82,21 +82,29 @@ public class CPTsophietools{
 		con.println("\n\n  Welcome to the help menu!");
 		con.println("\n\n  Hope these instructions would help you on your journey:");
 		con.setDrawColor(Color.WHITE);
-		con.drawRect(100,100,500,500);
-		con.println("\n\n  1. To start gameplay, press 'p' in main menu");
-		con.println("  2. Enter username - username will be displayed on leaderboard");
-		con.println("  3. Multiple themes will be shown on the screen - type your desired theme");
-		con.println("  4. The number of underlines represent the number of letters of the word you have to guess");
-		con.println("  5. Win by guessing the correct word before the hangman is completed");
-		con.println("  6. Return to main menu by pressing 'r'");
+		con.drawRect(25,165,1100,200);
+		con.println("\n\n   1. To start gameplay, press 'p' in main menu");
+		con.println("   2. Enter username - username will be displayed on leaderboard");
+		con.println("   3. Multiple themes will be shown on the screen - type your desired theme");
+		con.println("   4. The number of underlines represent the number of letters of the word you have to guess");
+		con.println("   5. Win by guessing the correct word before the hangman is completed");
+		con.println("   6. Return to main menu by pressing 'r'");
+		con.drawString("  ▶ return (r)",1000,600);
 	}
 	
-	public static void secretMenu(Console con){
-		con.println("Oh hi!");
-		con.println("You found the secret menu!");
-		con.println("You know what? ");
-		con.println("Killerwhales are actually dolphins.");
-		con.println("\n\nHa! I bet you did not know :)");
+	public static char secretMenu(Console con){
+		con.println("\n\n  Oh hi!");
+		con.sleep(1000);
+		con.println("  You found the secret menu!");
+		con.sleep(1000);
+		con.println("  You know what? ");
+		con.sleep(2000);
+		con.println("\n\n  Killerwhales are actually dolphins.");
+		con.sleep(2000);
+		con.println("\n\n  Ha! I bet you did not know :)");
+		con.sleep(2000);
+		char chrReturn = 'r';
+		return chrReturn;
 	}
 	
 	public static void leaderboard(Console con){
