@@ -1,5 +1,6 @@
 import arc.*;
 import java.awt.image.BufferedImage;
+import java.awt.Color;
 
 public class CPTsophietools{
 	public static String checkTheme(String strTheme, String strChosenTheme){
@@ -66,25 +67,28 @@ public class CPTsophietools{
 	
 	public static char MainMenu(Console con){
 		char chrMainMenu;
-		con.println("▶ play game (p)");
-		con.println("▶ view leaderboard (v)");
-		con.println("▶ add theme (a)");
-		con.println("▶ help (h)");
-		con.println("▶ quit (q)");
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
+		con.println("\n\n  ▶ play game (p)");
+		con.println("  ▶ view leaderboard (v)");
+		con.println("  ▶ add theme (a)");
+		con.println("  ▶ help (h)");
+		con.println("  ▶ quit (q)");
 		chrMainMenu = con.getChar();
 		return chrMainMenu;
 	}
 	
 	public static void helpMenu(Console con){
-		con.println("Welcome to the help menu!");
-		con.println("Hope these instructions would help you on your journey:");
-		con.println("1. To start gameplay, press 'p' in main menu");
-		con.println("2. Enter username - username will be displayed on leaderboard");
-		con.println("3. Multiple themes will be shown on the screen - type your desired theme");
-		con.println("4. The number of underlines represent the number of letters of the word you have to guess");
-		con.println("5. Win by guessing the correct word before the hangman is completed");
-		con.println("6. Return to main menu by pressing 'r'");
-		
+		con.println("\n\n  Welcome to the help menu!");
+		con.println("\n\n  Hope these instructions would help you on your journey:");
+		con.setDrawColor(Color.WHITE);
+		con.drawRect(100,100,500,500);
+		con.println("\n\n  1. To start gameplay, press 'p' in main menu");
+		con.println("  2. Enter username - username will be displayed on leaderboard");
+		con.println("  3. Multiple themes will be shown on the screen - type your desired theme");
+		con.println("  4. The number of underlines represent the number of letters of the word you have to guess");
+		con.println("  5. Win by guessing the correct word before the hangman is completed");
+		con.println("  6. Return to main menu by pressing 'r'");
 	}
 	
 	public static void secretMenu(Console con){
@@ -148,17 +152,27 @@ public class CPTsophietools{
 	public static String theme(Console con){
 		String strThemes;
 		String strChosenTheme;
-					
-		con.println("Choose a theme:");
+		
+		con.println("\n\n                  We discovered that there was a mysterious group that kidnapped people...");
+		con.println("                                        Please, save them! Good luck...");		
+		con.sleep(2000);
+		con.println("\n\n  Choose a theme:");
 		con.println(" ");
 		TextInputFile themes = new TextInputFile ("themes.txt");
 		while(themes.eof()==false){
 			strThemes = themes.readLine();
-			con.println("▶ "+strThemes);
-		}			
-		con.println("\n\n▶ Type your chosen theme:");
+			con.println("  ▶ "+strThemes);
+		}
+		con.println(" ");
+		con.println(" ");
+		con.setDrawColor(Color.WHITE);
+		con.drawRect(50,420,500,100);			
+		con.println("\n\n      ▶ Type your chosen theme:");
+		con.print("        ");
 		strChosenTheme = con.readLine();
 		themes.close();	
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
 		return strChosenTheme;
 	}
 	
@@ -256,7 +270,6 @@ public class CPTsophietools{
 			con.println("...........");
 			con.println("...You tried your best.▼");
 		}
-		
 	}
 	
 }

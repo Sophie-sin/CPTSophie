@@ -1,5 +1,6 @@
 import arc.*;
 import java.awt.image.BufferedImage;
+import java.awt.Color;
 
 public class CPTSophie{
 	public static void main(String[] args){
@@ -23,9 +24,17 @@ public class CPTSophie{
 				//ask for username
 				String strName;
 				TextOutputFile leaderboard = new TextOutputFile ("leaderboard.txt",true);
-				con.println("Enter your name: ");
+				con.setDrawColor(Color.WHITE);
+				con.drawRect(100,100,500,100);
+				con.println(" ");
+				con.println(" ");
+				con.println(" ");
+				con.println("\n\n              ▶ Enter your name: ");
+				con.print("                ");
 				strName = con.readLine();
 				leaderboard.close();
+				con.setDrawColor(Color.BLACK);
+				con.fillRect(0,0,1280,720);
 				con.clear();
 				
 				//choose theme
@@ -33,6 +42,7 @@ public class CPTSophie{
 				String strChosenTheme;
 				strThemes = "";
 				strChosenTheme = CPTsophietools.theme(con);
+				con.clear();
 				
 				//find theme
 				strThemes = CPTsophietools.checkTheme(strThemes, strChosenTheme);
@@ -91,18 +101,19 @@ public class CPTSophie{
 					con.clear();
 				}
 				
-				//win scenario
+				//win or lose scenario
 				/*if(!strGuessWord.equals(strWord)){
 					blnWin = false;
 				}else{
 					blnWin = true;
 				}*/
+				blnWin=true;
 				CPTsophietools.winScenario(con, blnWin);
 				con.clear();
 				
-				//lose scenario
-
 				//continue or not
+				con.clear();
+				
 				//return to main menu
 				while(chrReturn != 'r'){
 					chrReturn = con.getChar();
