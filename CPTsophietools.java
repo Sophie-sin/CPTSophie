@@ -174,7 +174,7 @@ public class CPTsophietools{
 		con.println(" ");
 		con.println(" ");
 		con.setDrawColor(Color.WHITE);
-		con.drawRect(50,420,500,100);			
+		con.drawRect(50,400,500,150);			
 		con.println("\n\n      ▶ Type your chosen theme:");
 		con.print("        ");
 		strChosenTheme = con.readLine();
@@ -230,53 +230,54 @@ public class CPTsophietools{
 		BufferedImage imgrhand = con.loadImage("righthand.png");
 		BufferedImage imglleg = con.loadImage("leftleg.png");
 		BufferedImage imgrleg = con.loadImage("rightleg.png");
+		con.setDrawColor(Color.WHITE);
 		if(intAttempt == 0){
-			con.drawImage(imgPole, 20, 50);
+			con.drawImage(imgPole, 100, 200);
 		}else if(intAttempt == 1){
-			con.drawImage(imgPole, 20, 50);
-			con.fillOval(190, 80, 50, 50);
+			con.drawImage(imgPole, 100, 200);
+			con.fillOval(270, 230, 50, 50);
 		}else if(intAttempt == 2){
-			con.drawImage(imgPole, 20, 50);
-			con.fillOval(190, 80, 50, 50);
-			con.fillRect(210, 100, 7, 80);
+			con.drawImage(imgPole, 100, 200);
+			con.fillOval(270, 230, 50, 50);
+			con.fillRect(290, 250, 7, 80);
 		}else if(intAttempt == 3){
-			con.drawImage(imgPole, 20, 50);
-			con.fillOval(190, 80, 50, 50);
-			con.fillRect(210, 100, 7, 80);
-			con.drawImage(imglhand, -225, -190);
+			con.drawImage(imgPole, 100, 200);
+			con.fillOval(270, 230, 50, 50);
+			con.fillRect(290, 250, 7, 80);
+			con.drawImage(imglhand, -145, -40);
 		}else if(intAttempt == 4){
-			con.drawImage(imgPole, 20, 50);
-			con.fillOval(190, 80, 50, 50);
-			con.fillRect(210, 100, 7, 80);
-			con.drawImage(imglhand, -225, -190);
-			con.drawImage(imgrhand, -200, -190);
+			con.drawImage(imgPole, 100, 200);
+			con.fillOval(270, 230, 50, 50);
+			con.fillRect(290, 250, 7, 80);
+			con.drawImage(imglhand, -145, -40);
+			con.drawImage(imgrhand, -120, -40);
 		}else if(intAttempt == 5){
-			con.drawImage(imgPole, 20, 50);
-			con.fillOval(190, 80, 50, 50);
-			con.fillRect(210, 100, 7, 80);
-			con.drawImage(imglhand, -225, -190);
-			con.drawImage(imgrhand, -200, -190);
-			con.drawImage(imglleg, -225, -155);
+			con.drawImage(imgPole, 100, 200);
+			con.fillOval(270, 230, 50, 50);
+			con.fillRect(290, 250, 7, 80);
+			con.drawImage(imglhand, -145, -40);
+			con.drawImage(imgrhand, -120, -40);
+			con.drawImage(imglleg, -145, -5);
 		}else if(intAttempt == 6){
-			con.drawImage(imgPole, 20, 50);
-			con.fillOval(190, 80, 50, 50);
-			con.fillRect(210, 100, 7, 80);
-			con.drawImage(imglhand, -225, -190);
-			con.drawImage(imgrhand, -200, -190);
-			con.drawImage(imglleg, -225, -155);
-			con.drawImage(imgrleg, -200, -155);
+			con.drawImage(imgPole, 100, 200);
+			con.fillOval(270, 230, 50, 50);
+			con.fillRect(290, 250, 7, 80);
+			con.drawImage(imglhand, -145, -40);
+			con.drawImage(imgrhand, -120, -40);
+			con.drawImage(imglleg, -145, -5);
+			con.drawImage(imgrleg, -120, -5);
 		}else{
 			con.clear();
 		}
 	}
 	public static void winScenario(Console con, boolean blnWin){
 		if(blnWin = true){
-			con.println("Congratulations!");
-			con.println("You successfully rescued the victim!▼");
+			con.drawString("Congratulations!",800,500);
+			con.drawString("You successfully rescued the victim!▼", 800,550);
 		}else{
-			con.println("....");
-			con.println("...........");
-			con.println("...You tried your best.▼");
+			con.drawString("....",800,450);
+			con.drawString("...........",800,500);
+			con.drawString("...You tried your best.▼",800,550);
 		}
 	}
 	

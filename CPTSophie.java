@@ -64,13 +64,23 @@ public class CPTSophie{
 				int intWord;
 				int intCount;
 				int intAttempt = 0;
+				boolean blnWin = true;
 				
 				String strWord = strRandomWord[0][0];
 				intWord = strWord.length();
 				System.out.println("TEST WORD COUNT: "+intWord);
 				CPTsophietools.hangman(con, intAttempt);
 				con.println("                              ");
-				con.print("                           ");
+				con.println("                              ");
+				con.println("                              ");
+				con.println("                              ");
+				con.println("                              ");
+				con.println("                              ");
+				con.println("                              ");
+				con.println("                              ");
+				con.println("                              ");
+				con.println("                              ");
+				con.print("                                     ");
 				for(intCount = 0; intCount<intWord; intCount++){
 					con.print("_");
 				}
@@ -78,8 +88,7 @@ public class CPTSophie{
 				//user guesses the word, output body part and one letter
 				String strGuessWord;
 				String strLetter[][];
-				boolean blnWin = true;
-				con.print("\n\n                           ");
+				con.print("\n\n                                     ");
 				strGuessWord = con.readLine();
 				strLetter = CPTsophietools.randomLetter(strWord,intWord);
 				
@@ -90,26 +99,33 @@ public class CPTSophie{
 					intAttempt = intAttempt+1;
 					CPTsophietools.hangman(con, intAttempt);
 					con.println("                              ");
-					con.print("                           ");
+					con.println("                              ");
+					con.println("                              ");
+					con.println("                              ");
+					con.println("                              ");
+					con.println("                              ");
+					con.println("                              ");
+					con.println("                              ");
+					con.println("                              ");
+					con.print("                                     ");
 					con.println(strLetter[intAttempt-1][0]);
-					con.print("                           ");
+					con.print("                                     ");
 					for(intCount = 0; intCount<intWord; intCount++){
 						con.print("_");
 					}
-					con.print("\n\n                           ");
+					con.print("\n\n                                     ");
 					strGuessWord = con.readLine();
-					con.clear();
 				}
 				
 				//win or lose scenario
-				/*if(!strGuessWord.equals(strWord)){
+				if(!strGuessWord.equals(strWord)){
 					blnWin = false;
-				}else{
+				}else if(strGuessWord.equals(strWord)){
 					blnWin = true;
-				}*/
-				blnWin=true;
+				}
+				
 				CPTsophietools.winScenario(con, blnWin);
-				con.clear();
+				
 				
 				//continue or not
 				con.clear();
