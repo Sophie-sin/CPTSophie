@@ -243,6 +243,8 @@ public class CPTsophietools{
 		BufferedImage imgrhand = con.loadImage("righthand.png");
 		BufferedImage imglleg = con.loadImage("leftleg.png");
 		BufferedImage imgrleg = con.loadImage("rightleg.png");
+		BufferedImage imgblood1 = con.loadImage("blood1.png");
+		BufferedImage imgblood2 = con.loadImage("blood2.png");
 		con.setDrawColor(Color.WHITE);
 		if(intAttempt == 0){
 			con.drawImage(imgPole, 100, 200);
@@ -271,6 +273,7 @@ public class CPTsophietools{
 			con.drawImage(imglhand, -145, -40);
 			con.drawImage(imgrhand, -120, -40);
 			con.drawImage(imglleg, -145, -5);
+			con.drawImage(imgblood1,0,0);
 		}else if(intAttempt == 6){
 			con.drawImage(imgPole, 100, 200);
 			con.fillOval(270, 230, 50, 50);
@@ -279,15 +282,29 @@ public class CPTsophietools{
 			con.drawImage(imgrhand, -120, -40);
 			con.drawImage(imglleg, -145, -5);
 			con.drawImage(imgrleg, -120, -5);
+			con.drawImage(imgblood2,0,0);
 		}else{
 			con.clear();
 		}
 	}
 	public static void winScenario(Console con, boolean blnWin){
+		BufferedImage imgPole = con.loadImage("hangman.png");
+		BufferedImage imgMan = con.loadImage("man.png");
+		BufferedImage imgblood2 = con.loadImage("blood2.png");
+		BufferedImage imgwin = con.loadImage("win.png");
+		BufferedImage imglose = con.loadImage("lose.png");
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
+		con.setDrawColor(Color.WHITE);
+		con.drawImage(imgPole, 100, 200);
 		if(blnWin = true){
+			con.drawImage(imgMan,-50,-20);
+			con.drawImage(imgwin,0,0);
 			con.drawString("Congratulations!",800,500);
 			con.drawString("You successfully rescued the victim!▼", 800,550);
 		}else{
+			con.drawImage(imgblood2,0,0);
+			con.drawImage(imglose,0,0);
 			con.drawString("....",800,450);
 			con.drawString("...........",800,500);
 			con.drawString("...You tried your best.▼",800,550);
