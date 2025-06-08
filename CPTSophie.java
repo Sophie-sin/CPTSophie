@@ -21,6 +21,8 @@ public class CPTSophie{
 			//play game
 			if(chrMainMenu=='p'){
 				con.clear();
+				con.setDrawColor(Color.BLACK);
+				con.fillRect(0,0,1280,720);
 				blnLoop = false;
 				
 				//ask for username
