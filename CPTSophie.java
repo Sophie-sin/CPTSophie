@@ -25,11 +25,11 @@ public class CPTSophie{
 				String strName;
 				TextOutputFile leaderboard = new TextOutputFile ("leaderboard.txt",true);
 				con.setDrawColor(Color.WHITE);
-				con.drawRect(100,100,500,100);
+				con.drawRect(100,100,600,100);
 				con.println(" ");
 				con.println(" ");
 				con.println(" ");
-				con.println("\n\n              ▶ Enter your name: ");
+				con.println("\n\n              ▶ Enter your name: (max 10 characters)");
 				con.print("                ");
 				strName = con.readLine();
 				leaderboard.close();

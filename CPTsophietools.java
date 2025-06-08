@@ -146,15 +146,25 @@ public class CPTsophietools{
 				}
 			}
 		}
-		con.println("Leaderboard");
-		con.println("TOP 10");
-		con.println("NAME      SAVES");
+		con.setDrawColor(Color.WHITE);
+		con.drawString("Leaderboard - TOP 10", 500, 50);
+		con.drawString("\n\nRANK           NAME           SAVES",400,100);
+		con.drawLine(400,90,830,90);
+		con.drawLine(400,140,830,140);
 		int intRank = 0;
+		int inty = 150;
+			
 		for(intRow = 0; intRow < 10; intRow++){
 			intRank = intRank+1;
-			con.print(intRank+strLeaderboard[intRow][0]);
-			con.println(strLeaderboard[intRow][1]);
+			con.setDrawColor(new Color(51,51,51));
+			con.fillRect(400, inty, 430, 30);
+			con.setDrawColor(Color.WHITE);
+			con.drawString(intRank+"", 420, inty);
+			con.drawString(strLeaderboard[intRow][0]+"", 550, inty);
+			con.drawString(strLeaderboard[intRow][1]+"", 770, inty);
+			inty = inty + 50;
 		}
+		con.drawString("  ▶ return (r)",1000,600);
 	}
 	
 	public static String theme(Console con){
