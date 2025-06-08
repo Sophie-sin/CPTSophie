@@ -69,11 +69,14 @@ public class CPTsophietools{
 		char chrMainMenu;
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
-		con.println("\n\n  ▶ play game (p)");
-		con.println("  ▶ view leaderboard (v)");
-		con.println("  ▶ add theme (a)");
-		con.println("  ▶ help (h)");
-		con.println("  ▶ quit (q)");
+		BufferedImage imgLogo = con.loadImage("logo.png");
+		con.drawImage(imgLogo,0,0);
+		con.setDrawColor(Color.WHITE);
+		con.drawString("▶ play game (p)",120,300);
+		con.drawString("▶ view leaderboard (v)",120,350);
+		con.drawString("▶ add theme (a)",120,400);
+		con.drawString("▶ help (h)",120,450);
+		con.drawString("▶ quit (q)",120,500);
 		chrMainMenu = con.getChar();
 		return chrMainMenu;
 	}

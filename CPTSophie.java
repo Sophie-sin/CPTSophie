@@ -10,6 +10,8 @@ public class CPTSophie{
 		char chrReturn;
 		chrMainMenu = CPTsophietools.MainMenu(con);
 		con.clear();
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
 		
 		//loop
 		boolean blnLoop = true;
