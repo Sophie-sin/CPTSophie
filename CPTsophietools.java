@@ -240,9 +240,9 @@ public class CPTsophietools{
 		//rearrange to correct position
 		for(intWord = 0; intWord < intCount; intWord++){
 			System.out.println(strLetter[intWord][0]+" - "+strLetter[intWord][1]);
-			for(intSpace = 0; intSpace < intCount; intSpace++){
-				strLetter[intSpace][0] = (" ")+strLetter[intSpace][0];
-			}
+			//for(intSpace = 0; intSpace < intCount; intSpace++){
+				//strLetter[intSpace][0] = (" ")+strLetter[intSpace][0];
+			//}
 		}
 		
 		return strLetter;

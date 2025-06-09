@@ -122,11 +122,11 @@ public class CPTSophie{
 						con.println("                              ");
 						con.println("                              ");
 						con.println("                              ");
-						con.print("                              ");
+						con.print("                                     ");
 						//Test
 						//con.println(strLetter[0][0]);
 						for(intSpace = 0; intSpace < intRand; intSpace++){
-							con.print(" ");
+							strLetter[intRand][0]=(" ")+strLetter[intRand][0];
 						}
 						con.println(strLetter[intRand][0]);
 						strLetter[intRand][0] = "";
