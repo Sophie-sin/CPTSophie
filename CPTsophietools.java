@@ -173,7 +173,8 @@ public class CPTsophietools{
 	public static String theme(Console con){
 		String strThemes;
 		String strChosenTheme;
-		
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
 		con.println("\n\n                  We discovered that there was a mysterious group that kidnapped people...");
 		con.println("                                        Please, save them! Good luck...");		
 		con.sleep(2000);
@@ -301,14 +302,24 @@ public class CPTsophietools{
 			con.drawImage(imgMan,-50,-20);
 			con.drawImage(imgwin,0,0);
 			con.drawString("Congratulations!",800,500);
-			con.drawString("You successfully rescued the victim!▼", 800,550);
-		}else{
+			con.drawString("You successfully rescued the victim!▼",800,550);
+		}else if(blnWin = false){
 			con.drawImage(imgblood2,0,0);
 			con.drawImage(imglose,0,0);
 			con.drawString("....",800,450);
 			con.drawString("...........",800,500);
 			con.drawString("...You tried your best.▼",800,550);
 		}
+	}
+	public static void continueGame(Console con){
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
+		con.setDrawColor(Color.WHITE);
+		con.drawString("Unfortunately, there are more victims being kidnapped",300,50);
+		con.drawString("by the mysterious group...",450,100);
+		con.drawString("Would you like to rescue another victim? yes/no",350,300);
+		con.drawString("▶ press 'y' or 'n'",350,350);
+		con.drawRect(300,270,700,150);
 	}
 	
 }

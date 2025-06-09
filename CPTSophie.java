@@ -27,6 +27,7 @@ public class CPTSophie{
 				
 				//ask for username
 				String strName;
+				int intSaves = 0;
 				TextOutputFile leaderboard = new TextOutputFile ("leaderboard.txt",true);
 				con.setDrawColor(Color.WHITE);
 				con.drawRect(100,100,600,100);
@@ -41,66 +42,41 @@ public class CPTSophie{
 				con.fillRect(0,0,1280,720);
 				con.clear();
 				
-				//choose theme
-				String strThemes;
-				String strChosenTheme;
-				strThemes = "";
-				strChosenTheme = CPTsophietools.theme(con);
-				con.clear();
-				
-				//find theme
-				strThemes = CPTsophietools.checkTheme(strThemes, strChosenTheme);
-				while(!strChosenTheme.equals(strThemes)){
-					con.clear();
+				//game play loop
+				char chrGame = 'y';
+				while(chrGame == 'y'){
+					//choose theme
+					String strThemes;
+					String strChosenTheme;
+					strThemes = "";
 					strChosenTheme = CPTsophietools.theme(con);
-					strThemes = CPTsophietools.checkTheme(strThemes, strChosenTheme);
-				}
-				con.clear();
-				
-				//game start
-				//load word
-				String strRandomWord[][];
-				strRandomWord = CPTsophietools.randomWord(strChosenTheme);
-				System.out.println("TEST WORD: "+strRandomWord[0][0]);
-				
-				
-				//load hangman pole, underlines for word
-				int intWord;
-				int intCount;
-				int intAttempt = 0;
-				boolean blnWin = true;
-				
-				String strWord = strRandomWord[0][0];
-				intWord = strWord.length();
-				System.out.println("TEST WORD COUNT: "+intWord);
-				CPTsophietools.hangman(con, intAttempt);
-				con.println("                              ");
-				con.println("                              ");
-				con.println("                              ");
-				con.println("                              ");
-				con.println("                              ");
-				con.println("                              ");
-				con.println("                              ");
-				con.println("                              ");
-				con.println("                              ");
-				con.println("                              ");
-				con.print("                                     ");
-				for(intCount = 0; intCount<intWord; intCount++){
-					con.print("_");
-				}
-				
-				//user guesses the word, output body part and one letter
-				String strGuessWord;
-				String strLetter[][];
-				con.print("\n\n                                     ");
-				strGuessWord = con.readLine();
-				strLetter = CPTsophietools.randomLetter(strWord,intWord);
-				
-				//guessed wrong
-				while(!strGuessWord.equals(strWord)&&intAttempt<6){
 					con.clear();
-					blnWin = false;
-					intAttempt = intAttempt+1;
+					
+					//find theme
+					strThemes = CPTsophietools.checkTheme(strThemes, strChosenTheme);
+					while(!strChosenTheme.equals(strThemes)){
+						con.clear();
+						strChosenTheme = CPTsophietools.theme(con);
+						strThemes = CPTsophietools.checkTheme(strThemes, strChosenTheme);
+					}
+					con.clear();
+					
+					//game start
+					//load word
+					String strRandomWord[][];
+					strRandomWord = CPTsophietools.randomWord(strChosenTheme);
+					System.out.println("TEST WORD: "+strRandomWord[0][0]);
+					
+					
+					//load hangman pole, underlines for word
+					int intWord;
+					int intCount;
+					int intAttempt = 0;
+					boolean blnWin = true;
+					
+					String strWord = strRandomWord[0][0];
+					intWord = strWord.length();
+					System.out.println("TEST WORD COUNT: "+intWord);
 					CPTsophietools.hangman(con, intAttempt);
 					con.println("                              ");
 					con.println("                              ");
@@ -111,28 +87,69 @@ public class CPTSophie{
 					con.println("                              ");
 					con.println("                              ");
 					con.println("                              ");
-					con.print("                                     ");
-					con.println(strLetter[intAttempt-1][0]);
+					con.println("                              ");
 					con.print("                                     ");
 					for(intCount = 0; intCount<intWord; intCount++){
 						con.print("_");
 					}
+					
+					//user guesses the word, output body part and one letter
+					String strGuessWord;
+					String strLetter[][];
 					con.print("\n\n                                     ");
 					strGuessWord = con.readLine();
+					strLetter = CPTsophietools.randomLetter(strWord,intWord);
+					
+					//guessed wrong
+					while(!strGuessWord.equals(strWord)&&intAttempt<6){
+						con.clear();
+						blnWin = false;
+						intAttempt = intAttempt+1;
+						CPTsophietools.hangman(con, intAttempt);
+						con.println("                              ");
+						con.println("                              ");
+						con.println("                              ");
+						con.println("                              ");
+						con.println("                              ");
+						con.println("                              ");
+						con.println("                              ");
+						con.println("                              ");
+						con.println("                              ");
+						con.print("                                     ");
+						con.println(strLetter[intAttempt-1][0]);
+						con.print("                                     ");
+						for(intCount = 0; intCount<intWord; intCount++){
+							con.print("_");
+						}
+						con.print("\n\n                                     ");
+						strGuessWord = con.readLine();
+					}
+					
+					//win or lose scenario
+					if(!strGuessWord.equals(strWord)){
+						blnWin = false;
+					}else if(strGuessWord.equals(strWord)){
+						blnWin = true;
+					}
+					
+					CPTsophietools.winScenario(con, blnWin);
+					con.sleep(2000);
+					
+					//continue or not
+					con.clear();
+					CPTsophietools.continueGame(con);
+					chrGame = con.getChar();
+					
+					//record number of saves
+					intSaves = intSaves + 1;
+					System.out.println("TEST SAVES: "+intSaves);
 				}
-				
-				//win or lose scenario
-				if(!strGuessWord.equals(strWord)){
-					blnWin = false;
-				}else if(strGuessWord.equals(strWord)){
-					blnWin = true;
-				}
-				
-				CPTsophietools.winScenario(con, blnWin);
-				
-				
-				//continue or not
-				con.clear();
+				//not continue
+				//print name and number of saves to leaderboard
+				con.setDrawColor(Color.BLACK);
+				con.fillRect(0,0,1280,720);
+				System.out.println("TEST SAVES: "+intSaves);
+				System.out.println("TEST NAME: "+strName);
 				
 				//return to main menu
 				while(chrReturn != 'r'){
