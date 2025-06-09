@@ -211,14 +211,14 @@ public class CPTsophietools{
 	public static String[][] randomLetter(String strWord, int intWord){
 		int intCount;
 		int intRand;
+		int intSpace;
 		String strLetter[][];
 		strLetter = new String[intWord][2];
 		for(intCount = 0; intCount < intWord; intCount++){
 			strLetter[intCount][0] = strWord.substring(intCount,intCount+1);
-			intRand = (int)(Math.random()*100+1);
-			strLetter[intCount][1] = intRand+"";
+			strLetter[intCount][1] = intCount+1+"";
 		}
-		//bubble sort random letter
+		/*//bubble sort random letter
 		int intCount2 = 0;
 		String strTempLetter;
 		String strTempNum;
@@ -236,9 +236,9 @@ public class CPTsophietools{
 					strLetter[intCount+1][1] = strTempNum;
 				}
 			}
-		}
+		}*/
 		//rearrange to correct position
-		for(intWord = 0; intWord < intCount2+1; intWord++){
+		for(intWord = 0; intWord < intCount; intWord++){
 			System.out.println(strLetter[intWord][0]+" - "+strLetter[intWord][1]);
 			for(intSpace = 0; intSpace < intCount; intSpace++){
 				strLetter[intSpace][0] = (" ")+strLetter[intSpace][0];

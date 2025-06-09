@@ -97,6 +97,8 @@ public class CPTSophie{
 					//user guesses the word, output body part and one letter
 					String strGuessWord;
 					String strLetter[][];
+					int intRand;
+					int intSpace;
 					con.print("\n\n                                     ");
 					strGuessWord = con.readLine();
 					strLetter = CPTsophietools.randomLetter(strWord,intWord);
@@ -106,6 +108,10 @@ public class CPTSophie{
 						con.clear();
 						blnWin = false;
 						intAttempt = intAttempt+1;
+						intRand = (int)(Math.random()*intWord);
+						while(strLetter[intRand][0] == ""){
+							intRand = (int)(Math.random()*intWord);
+						}
 						CPTsophietools.hangman(con, intAttempt);
 						con.println("                              ");
 						con.println("                              ");
@@ -116,8 +122,14 @@ public class CPTSophie{
 						con.println("                              ");
 						con.println("                              ");
 						con.println("                              ");
-						con.print("                                     ");
-						con.println(strLetter[intAttempt-1][0]);
+						con.print("                              ");
+						//Test
+						//con.println(strLetter[0][0]);
+						for(intSpace = 0; intSpace < intRand; intSpace++){
+							con.print(" ");
+						}
+						con.println(strLetter[intRand][0]);
+						strLetter[intRand][0] = "";
 						con.print("                                     ");
 						for(intCount = 0; intCount<intWord; intCount++){
 							con.print("_");
