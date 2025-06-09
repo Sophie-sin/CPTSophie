@@ -77,11 +77,14 @@ public class CPTsophietools{
 		con.drawString("▶ add theme (a)",120,400);
 		con.drawString("▶ help (h)",120,450);
 		con.drawString("▶ quit (q)",120,500);
+		con.repaint();
 		chrMainMenu = con.getChar();
 		return chrMainMenu;
 	}
 	
 	public static void helpMenu(Console con){
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
 		con.println("\n\n  Welcome to the help menu!");
 		con.println("\n\n  Hope these instructions would help you on your journey:");
 		con.setDrawColor(Color.WHITE);
@@ -93,9 +96,12 @@ public class CPTsophietools{
 		con.println("   5. Win by guessing the correct word before the hangman is completed");
 		con.println("   6. Return to main menu by pressing 'r'");
 		con.drawString("  ▶ return (r)",1000,600);
+		con.repaint();
 	}
 	
 	public static char secretMenu(Console con){
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
 		con.println("\n\n  Oh hi!");
 		con.sleep(1000);
 		con.println("  You found the secret menu!");
@@ -105,6 +111,7 @@ public class CPTsophietools{
 		con.println("\n\n  Killerwhales are actually dolphins.");
 		con.sleep(2000);
 		con.println("\n\n  Ha! I bet you did not know :)");
+		con.repaint();
 		con.sleep(2000);
 		char chrReturn = 'r';
 		return chrReturn;
@@ -149,6 +156,8 @@ public class CPTsophietools{
 				}
 			}
 		}
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
 		con.setDrawColor(Color.WHITE);
 		con.drawString("Leaderboard - TOP 10", 500, 50);
 		con.drawString("\n\nRANK           NAME           SAVES",400,100);
@@ -168,6 +177,7 @@ public class CPTsophietools{
 			inty = inty + 50;
 		}
 		con.drawString("  ▶ return (r)",1000,600);
+		con.repaint();
 	}
 	
 	public static String theme(Console con){
@@ -303,12 +313,14 @@ public class CPTsophietools{
 			con.drawImage(imgwin,0,0);
 			con.drawString("Congratulations!",800,500);
 			con.drawString("You successfully rescued the victim!▼",800,550);
+			con.repaint();
 		}else if(blnWin = false){
 			con.drawImage(imgblood2,0,0);
 			con.drawImage(imglose,0,0);
 			con.drawString("....",800,450);
 			con.drawString("...........",800,500);
 			con.drawString("...You tried your best.▼",800,550);
+			con.repaint();
 		}
 	}
 	public static void continueGame(Console con){
@@ -320,6 +332,7 @@ public class CPTsophietools{
 		con.drawString("Would you like to rescue another victim? yes/no",350,300);
 		con.drawString("▶ press 'y' or 'n'",350,350);
 		con.drawRect(300,270,700,150);
+		con.repaint();
 	}
 	
 }

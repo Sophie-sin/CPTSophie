@@ -13,6 +13,7 @@ public class CPTSophie{
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
 		
+		
 		//loop
 		boolean blnLoop = true;
 		while(blnLoop == true){
@@ -126,15 +127,16 @@ public class CPTSophie{
 					}
 					
 					//win or lose scenario
+					con.clear();
+					con.repaint();
 					if(!strGuessWord.equals(strWord)){
 						blnWin = false;
 					}else if(strGuessWord.equals(strWord)){
 						blnWin = true;
 					}
-					
 					CPTsophietools.winScenario(con, blnWin);
 					con.sleep(2000);
-					
+
 					//continue or not
 					con.clear();
 					CPTsophietools.continueGame(con);
@@ -148,8 +150,11 @@ public class CPTSophie{
 				//print name and number of saves to leaderboard
 				con.setDrawColor(Color.BLACK);
 				con.fillRect(0,0,1280,720);
+				con.setDrawColor(Color.WHITE);
+				con.drawString("  ▶ return (r)",1000,600);
 				System.out.println("TEST SAVES: "+intSaves);
 				System.out.println("TEST NAME: "+strName);
+				con.repaint();
 				
 				//return to main menu
 				while(chrReturn != 'r'){
