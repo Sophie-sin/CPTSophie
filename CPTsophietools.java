@@ -308,13 +308,14 @@ public class CPTsophietools{
 		con.fillRect(0,0,1280,720);
 		con.setDrawColor(Color.WHITE);
 		con.drawImage(imgPole, 100, 200);
-		if(blnWin = true){
+		con.drawString("  ▶ press any button to continue",770,620);
+		if(blnWin == true){
 			con.drawImage(imgMan,-50,-20);
 			con.drawImage(imgwin,0,0);
 			con.drawString("Congratulations!",800,500);
 			con.drawString("You successfully rescued the victim!▼",800,550);
 			con.repaint();
-		}else if(blnWin = false){
+		}else{
 			con.drawImage(imgblood2,0,0);
 			con.drawImage(imglose,0,0);
 			con.drawString("....",800,450);

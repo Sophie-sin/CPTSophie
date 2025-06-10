@@ -18,3 +18,9 @@ orange
 20
 grapes
 99
+konichiwa
+2
+hello
+1
+halo
+1

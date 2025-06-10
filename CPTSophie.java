@@ -29,7 +29,6 @@ public class CPTSophie{
 				//ask for username
 				String strName;
 				int intSaves = 0;
-				TextOutputFile leaderboard = new TextOutputFile ("leaderboard.txt",true);
 				con.setDrawColor(Color.WHITE);
 				con.drawRect(100,100,600,100);
 				con.println(" ");
@@ -38,7 +37,6 @@ public class CPTSophie{
 				con.println("\n\n              ▶ Enter your name: (max 10 characters)");
 				con.print("                ");
 				strName = con.readLine();
-				leaderboard.close();
 				con.setDrawColor(Color.BLACK);
 				con.fillRect(0,0,1280,720);
 				con.clear();
@@ -73,8 +71,7 @@ public class CPTSophie{
 					int intWord;
 					int intCount;
 					int intAttempt = 0;
-					boolean blnWin = true;
-					
+					boolean blnWin;
 					String strWord = strRandomWord[0][0];
 					intWord = strWord.length();
 					System.out.println("TEST WORD COUNT: "+intWord);
@@ -146,15 +143,16 @@ public class CPTSophie{
 					}
 					
 					//win or lose scenario
+					blnWin = strGuessWord.equals(strWord);
+					System.out.println("TEST GUESS: "+strGuessWord);
+					System.out.println("TEST WORD: "+strWord);
+					System.out.println("TEST CONDITION: "+blnWin);
 					con.clear();
 					con.repaint();
-					if(!strGuessWord.equals(strWord)){
-						blnWin = false;
-					}else if(strGuessWord.equals(strWord)){
-						blnWin = true;
-					}
+					
 					CPTsophietools.winScenario(con, blnWin);
-					con.sleep(2000);
+					char chrNext;
+					chrNext = con.getChar();
 
 					//continue or not
 					con.clear();
@@ -162,8 +160,13 @@ public class CPTSophie{
 					chrGame = con.getChar();
 					
 					//record number of saves
-					intSaves = intSaves + 1;
+					if(blnWin == true){
+						intSaves = intSaves + 1;
+					}else{
+						intSaves = intSaves + 0;
+					}
 					System.out.println("TEST SAVES: "+intSaves);
+					
 				}
 				//not continue
 				//print name and number of saves to leaderboard
@@ -174,6 +177,10 @@ public class CPTSophie{
 				System.out.println("TEST SAVES: "+intSaves);
 				System.out.println("TEST NAME: "+strName);
 				con.repaint();
+				TextOutputFile leaderboard = new TextOutputFile ("leaderboard.txt",true);
+				leaderboard.println(strName);
+				leaderboard.println(intSaves);
+				leaderboard.close();
 				
 				//return to main menu
 				while(chrReturn != 'r'){
@@ -240,6 +247,7 @@ public class CPTSophie{
 				blnLoop = false;
 				CPTsophietools.helpMenu(con);
 				while(chrReturn != 'r'){
+					con.repaint();
 					chrReturn = con.getChar();
 				}
 				if(chrReturn == 'r'){
