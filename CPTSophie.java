@@ -151,6 +151,9 @@ public class CPTSophie{
 					con.repaint();
 					
 					CPTsophietools.winScenario(con, blnWin);
+					con.sleep(2000);
+					con.drawString("  ▶ press any button to continue",770,620);
+					con.repaint();
 					char chrNext;
 					chrNext = con.getChar();
 

@@ -308,7 +308,7 @@ public class CPTsophietools{
 		con.fillRect(0,0,1280,720);
 		con.setDrawColor(Color.WHITE);
 		con.drawImage(imgPole, 100, 200);
-		con.drawString("  ▶ press any button to continue",770,620);
+		
 		if(blnWin == true){
 			con.drawImage(imgMan,-50,-20);
 			con.drawImage(imgwin,0,0);
