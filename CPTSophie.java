@@ -29,6 +29,7 @@ public class CPTSophie{
 				//ask for username
 				String strName;
 				int intSaves = 0;
+				int intName;
 				con.setDrawColor(Color.WHITE);
 				con.drawRect(100,100,600,100);
 				con.println(" ");
@@ -37,6 +38,18 @@ public class CPTSophie{
 				con.println("\n\n              ▶ Enter your name: (max 10 characters)");
 				con.print("                ");
 				strName = con.readLine();
+				intName = strName.length();
+				while(intName > 10){
+					con.clear();
+					con.println(" ");
+					con.println(" ");
+					con.println(" ");
+					con.println("\n\n              ▶ Enter your name: (max 10 characters)");
+					con.print("                ");
+					strName = con.readLine();
+					intName = strName.length();
+				}
+				System.out.println(strName);
 				con.setDrawColor(Color.BLACK);
 				con.fillRect(0,0,1280,720);
 				con.clear();
