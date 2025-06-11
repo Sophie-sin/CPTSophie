@@ -78,7 +78,9 @@ public class CPTsophietools{
 		con.drawString("▶ help (h)",120,450);
 		con.drawString("▶ quit (q)",120,500);
 		con.repaint();
+		con.sleep(500);
 		chrMainMenu = con.getChar();
+		System.out.println("TEST get char: "+chrMainMenu);
 		return chrMainMenu;
 	}
 	

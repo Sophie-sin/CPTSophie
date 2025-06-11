@@ -24,3 +24,7 @@ hello
 1
 halo
 1
+Sophie
+3
+waaa
+5

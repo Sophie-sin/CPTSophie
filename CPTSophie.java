@@ -200,6 +200,7 @@ public class CPTSophie{
 			//view leaderboard
 			if(chrMainMenu=='v'){
 				blnLoop = false;
+				chrReturn = ' ';
 				CPTsophietools.leaderboard(con);
 				while(chrReturn != 'r'){
 					chrReturn = con.getChar();
@@ -248,9 +249,9 @@ public class CPTSophie{
 			//help menu
 			if(chrMainMenu=='h'){
 				blnLoop = false;
+				chrReturn = ' ';
 				CPTsophietools.helpMenu(con);
 				while(chrReturn != 'r'){
-					con.repaint();
 					chrReturn = con.getChar();
 				}
 				if(chrReturn == 'r'){
@@ -264,6 +265,7 @@ public class CPTSophie{
 			//secret menu
 			if(chrMainMenu=='s'){
 				blnLoop = false;
+				chrReturn = ' ';
 				chrReturn = CPTsophietools.secretMenu(con);
 				while(chrReturn != 'r'){
 					chrReturn = con.getChar();
