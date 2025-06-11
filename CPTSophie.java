@@ -9,7 +9,7 @@ public class CPTSophie{
 		char chrMainMenu = ' ';
 		char chrReturn;
 		chrMainMenu = CPTsophietools.MainMenu(con);
-		//con.clear();
+		con.clear();
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
 		
@@ -163,7 +163,7 @@ public class CPTSophie{
 					con.clear();
 					con.repaint();
 					
-					CPTsophietools.winScenario(con, blnWin);
+					CPTsophietools.winScenario(con, blnWin, strWord);
 					con.sleep(2000);
 					con.drawString("  ▶ press any button to continue",770,620);
 					con.repaint();
@@ -182,7 +182,6 @@ public class CPTSophie{
 						intSaves = intSaves + 0;
 					}
 					System.out.println("TEST SAVES: "+intSaves);
-					//chrMainMenu = ' ';
 				}
 				//not continue
 				//print name and number of saves to leaderboard
@@ -206,7 +205,7 @@ public class CPTSophie{
 					con.clear();
 					chrMainMenu = CPTsophietools.MainMenu(con);
 					System.out.println("TEST: "+chrMainMenu);
-					//con.clear();
+					con.clear();
 					blnLoop = true;
 				}
 			}
@@ -232,6 +231,9 @@ public class CPTSophie{
 				blnLoop = false;
 				String strNewTheme;
 				String strNewWord = "";
+				con.setDrawColor(Color.BLACK);
+				con.fillRect(0,0,1280,720);
+				con.repaint();
 				con.clear();
 				//new theme
 				TextOutputFile newTheme = new TextOutputFile("themes.txt", true);

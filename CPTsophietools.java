@@ -300,7 +300,7 @@ public class CPTsophietools{
 			con.clear();
 		}
 	}
-	public static void winScenario(Console con, boolean blnWin){
+	public static void winScenario(Console con, boolean blnWin, String strWord){
 		BufferedImage imgPole = con.loadImage("hangman.png");
 		BufferedImage imgMan = con.loadImage("man.png");
 		BufferedImage imgblood2 = con.loadImage("blood2.png");
@@ -320,6 +320,8 @@ public class CPTsophietools{
 		}else{
 			con.drawImage(imgblood2,0,0);
 			con.drawImage(imglose,0,0);
+			con.repaint();
+			con.drawString("The word is: "+strWord,300,400);
 			con.drawString("....",800,450);
 			con.drawString("...........",800,500);
 			con.drawString("...You tried your best.▼",800,550);
