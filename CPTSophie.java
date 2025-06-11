@@ -9,7 +9,7 @@ public class CPTSophie{
 		char chrMainMenu = ' ';
 		char chrReturn;
 		chrMainMenu = CPTsophietools.MainMenu(con);
-		con.clear();
+		//con.clear();
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
 		
@@ -182,7 +182,7 @@ public class CPTSophie{
 						intSaves = intSaves + 0;
 					}
 					System.out.println("TEST SAVES: "+intSaves);
-					
+					//chrMainMenu = ' ';
 				}
 				//not continue
 				//print name and number of saves to leaderboard
@@ -205,13 +205,14 @@ public class CPTSophie{
 				if(chrReturn == 'r'){
 					con.clear();
 					chrMainMenu = CPTsophietools.MainMenu(con);
-					con.clear();
+					System.out.println("TEST: "+chrMainMenu);
+					//con.clear();
 					blnLoop = true;
 				}
 			}
 							
 			//view leaderboard
-			if(chrMainMenu=='v'){
+			else if(chrMainMenu=='v'){
 				blnLoop = false;
 				chrReturn = ' ';
 				CPTsophietools.leaderboard(con);
@@ -227,7 +228,7 @@ public class CPTSophie{
 			}
 			
 			//add theme
-			if(chrMainMenu=='a'){
+			else if(chrMainMenu=='a'){
 				blnLoop = false;
 				String strNewTheme;
 				String strNewWord = "";
@@ -254,13 +255,13 @@ public class CPTSophie{
 			}
 			
 			//quit
-			if(chrMainMenu=='q'){
+			else if(chrMainMenu=='q'){
 				blnLoop = false;
 				con.closeConsole();
 			}
 			
 			//help menu
-			if(chrMainMenu=='h'){
+			else if(chrMainMenu=='h'){
 				blnLoop = false;
 				chrReturn = ' ';
 				CPTsophietools.helpMenu(con);
@@ -276,7 +277,7 @@ public class CPTSophie{
 			}
 			
 			//secret menu
-			if(chrMainMenu=='s'){
+			else if(chrMainMenu=='s'){
 				blnLoop = false;
 				chrReturn = ' ';
 				chrReturn = CPTsophietools.secretMenu(con);
