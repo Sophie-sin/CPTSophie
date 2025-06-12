@@ -61,14 +61,14 @@ public class CPTSophie{
 					String strThemes;
 					String strChosenTheme;
 					strThemes = "";
-					strChosenTheme = CPTsophietools.theme(con);
+					strChosenTheme = CPTsophietools.theme(con,strName);
 					con.clear();
 					
 					//find theme
 					strThemes = CPTsophietools.checkTheme(strThemes, strChosenTheme);
 					while(!strChosenTheme.equals(strThemes)){
 						con.clear();
-						strChosenTheme = CPTsophietools.theme(con);
+						strChosenTheme = CPTsophietools.theme(con,strName);
 						strThemes = CPTsophietools.checkTheme(strThemes, strChosenTheme);
 					}
 					con.clear();
@@ -241,7 +241,7 @@ public class CPTSophie{
 				newTheme.close();
 				//words into theme
 				TextOutputFile newWords = new TextOutputFile(strNewTheme, true);
-				con.println("Enter words: press enter to continue, type 'stop' to stop");
+				con.println("\n\nEnter words: minimum 7 letters long, press enter to continue, type 'stop' to stop");
 				strNewWord = con.readLine();
 				while(!strNewWord.equals("stop")){
 					newWords.println(strNewWord);

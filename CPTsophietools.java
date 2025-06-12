@@ -183,12 +183,13 @@ public class CPTsophietools{
 		con.repaint();
 	}
 	
-	public static String theme(Console con){
+	public static String theme(Console con, String strName){
 		String strThemes;
 		String strChosenTheme;
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
-		con.println("\n\n                  We discovered that there was a mysterious group that kidnapped people...");
+		con.println("\n\n  Dear "+strName+": ");
+		con.println("                  We discovered that there was a mysterious group that kidnapped people...");
 		con.println("                                        Please, save them! Good luck...");		
 		con.sleep(2000);
 		con.println("\n\n  Choose a theme:");
@@ -201,8 +202,8 @@ public class CPTsophietools{
 		con.println(" ");
 		con.println(" ");
 		con.setDrawColor(Color.WHITE);
-		con.drawRect(50,400,500,150);			
-		con.println("\n\n      ▶ Type your chosen theme:");
+		con.drawRect(50,420,700,150);			
+		con.println("\n\n      ▶ Type your chosen theme: (including'.txt')");
 		con.print("        ");
 		strChosenTheme = con.readLine();
 		themes.close();	
