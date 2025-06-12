@@ -8,6 +8,15 @@ public class CPTTest{
 		boolean blnWin = false;
 		char chrNext;
 		String strWord = "hi";
+		String strNewWord;
+		strNewWord = con.readLine();
+			while(!strNewWord.equals("stop")){
+				con.println("Test: "+strNewWord);
+				strNewWord = con.readLine();
+			}
+		con.println("\n\nNew Theme is successfully added!");
+		con.sleep(2000);
+		con.clear();
 		con.drawString("You saved 2 victims", 500,300);
 		con.sleep(2000);
 		CPTsophietools.winScenario(con, blnWin,strWord);

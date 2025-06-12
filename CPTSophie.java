@@ -266,7 +266,8 @@ public class CPTSophie{
 					newWords.println(strNewWord);
 					strNewWord = con.readLine();
 				}
-				con.println("New Theme is successfully added!");
+				con.println("\n\nNew Theme is successfully added!");
+				con.sleep(2000);
 				//return to main menu
 				con.clear();
 				chrMainMenu = CPTsophietools.MainMenu(con);
