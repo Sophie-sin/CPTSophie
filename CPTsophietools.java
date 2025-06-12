@@ -109,9 +109,9 @@ public class CPTsophietools{
 		con.sleep(1000);
 		con.println("  You found the secret menu!");
 		con.sleep(1000);
-		con.println("  You know what? ");
+		con.println("  Do you know why did the student eat his homework? ");
 		con.sleep(2000);
-		con.println("\n\n  Killerwhales are actually dolphins.");
+		con.println("\n\n  Because the teacher told him it would be a piece of cake !");
 		con.sleep(2000);
 		con.println("\n\n  Ha! I bet you did not know :)");
 		con.repaint();

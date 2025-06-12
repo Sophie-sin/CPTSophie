@@ -1,3 +1,14 @@
+/*
+ * Name: Hangman
+ * Purpose: Generates a random word in the chosen theme, shows underlines 
+           according to the number of letters in the word. User wins by 
+           guessing the word correctly, outout a random letter and body
+           part if guessed wrong, loses if all body parts are shown.
+  * Author: Sophie Sin
+  * Date : 12-6-2025
+  * V2.5.0
+ */
+
 import arc.*;
 import java.awt.image.BufferedImage;
 import java.awt.Color;
@@ -259,7 +270,6 @@ public class CPTSophie{
 				//return to main menu
 				con.clear();
 				chrMainMenu = CPTsophietools.MainMenu(con);
-
 			}
 			
 			//quit
@@ -307,8 +317,6 @@ public class CPTSophie{
 			
 		}
 		
-		
 	}
-	
 		
 }
