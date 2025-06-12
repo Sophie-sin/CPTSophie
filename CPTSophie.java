@@ -50,6 +50,13 @@ public class CPTSophie{
 					intName = strName.length();
 				}
 				System.out.println(strName);
+				if(strName.equals("statitan")){
+					intSaves = 1;
+					con.println("\n\n          Special Feature: Saves +1");
+					con.sleep(1000);
+					con.println("          You just saved one victim!");
+					con.sleep(1500);
+				}
 				con.setDrawColor(Color.BLACK);
 				con.fillRect(0,0,1280,720);
 				con.clear();
@@ -186,6 +193,7 @@ public class CPTSophie{
 				con.setDrawColor(Color.BLACK);
 				con.fillRect(0,0,1280,720);
 				con.setDrawColor(Color.WHITE);
+				con.drawString("You saved "+intSaves+" victims", 500,300);
 				con.drawString("  ▶ return (r)",1000,600);
 				System.out.println("TEST SAVES: "+intSaves);
 				System.out.println("TEST NAME: "+strName);

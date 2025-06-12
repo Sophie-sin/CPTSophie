@@ -8,6 +8,8 @@ public class CPTTest{
 		boolean blnWin = false;
 		char chrNext;
 		String strWord = "hi";
+		con.drawString("You saved 2 victims", 500,300);
+		con.sleep(2000);
 		CPTsophietools.winScenario(con, blnWin,strWord);
 		chrNext = con.getChar();
 		CPTsophietools.continueGame(con);
