@@ -90,13 +90,14 @@ public class CPTsophietools{
 		con.println("\n\n  Welcome to the help menu!");
 		con.println("\n\n  Hope these instructions would help you on your journey:");
 		con.setDrawColor(Color.WHITE);
-		con.drawRect(25,165,1100,200);
+		con.drawRect(25,165,1100,250);
 		con.println("\n\n   1. To start gameplay, press 'p' in main menu");
 		con.println("   2. Enter username - username will be displayed on leaderboard");
 		con.println("   3. Multiple themes will be shown on the screen - type your desired theme");
 		con.println("   4. The number of underlines represent the number of letters of the word you have to guess");
 		con.println("   5. Win by guessing the correct word before the hangman is completed");
 		con.println("   6. Return to main menu by pressing 'r'");
+		con.println("   7. Try pressing random letters in the main menu to find the secret menu !");
 		con.drawString("  ▶ return (r)",1000,600);
 		con.repaint();
 	}

@@ -87,11 +87,9 @@ public class CPTSophie{
 					boolean blnWin;
 					String strWord = strRandomWord[0][0];
 					intWord = strWord.length();
+					con.println("\n\n      Enter a word with "+intWord+" letters:");
 					System.out.println("TEST WORD COUNT: "+intWord);
 					CPTsophietools.hangman(con, intAttempt);
-					con.println("                              ");
-					con.println("                              ");
-					con.println("                              ");
 					con.println("                              ");
 					con.println("                              ");
 					con.println("                              ");
